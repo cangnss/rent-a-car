@@ -1,0 +1,13 @@
+<h1>Users#index</h1>
+<p>Find me in app/views/users/index.html.erb</p>
+<div class="container">
+<div class="row">
+<ul class="list-group" style="list-style-type:none;">
+    <% @users.each do |user| %>
+        <li class="d-flex flex-row list-group-item fw-bold"><%= link_to user.name, user_path(user), class: 'ms-2 me-2' %> <%= button_to 'Edit', edit_user_path(user), method: 'get', class: 'btn btn-primary ms-2 me-2' %> <%= button_to 'Delete', user_path(user), method: 'delete', data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %></li>
+    <% end %>
+</ul>
+</div>
+<%= link_to "Add a New User", new_user_path %>
+
+</div>
