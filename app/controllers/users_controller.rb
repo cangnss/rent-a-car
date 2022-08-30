@@ -1,26 +1,18 @@
 class UsersController < ApplicationController
-  before_action :current_user, only: [:show, :edit, :update, :destroy]
+  before_action :find_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.all
   end
 
-  def show
-
-  end
+  def show; end
 
   def new
     @user = User.new
   end
 
-  def create
-    # User.create(name: "Ali Can", surname: "Güneş", age: 25)
-    # User.create(name: "Dilek", surname: "Güneş", age: 23)
-    # User.create(name: "Cem", surname: "Güneş", age: 18)
-    # User.create(name: "Zeynep", surname: "Yalçın", age: 12)
-    # User.create(name: "Yusuf", surname: "Yalçın", age: 5)
-    # User.create(name: "Ceren", surname: "Güneş", age: 18)
-    @user = User.create(user_params)
+  def create 
+    @user = User.new(user_params)
     if @user.save
       redirect_to @user
     else
@@ -28,19 +20,24 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def update
-    @user.update(user_params)
-    redirect_to user_path(@user)
+    if @user.update(user_params)
+      flash[:success] = ["Başarıyla eklendi."]
+      redirect_to user_path(@user)
+    else
+      flash[:error] = @user.errors.full_messages # oluşacak hataları döndürür.
+      render('edit')
+    end
   end
 
   def destroy
-    @user.destroy
-
-    redirect_to user_path
+    if @user.destroy
+      redirect_to users_path
+    else
+      redirect_to users_path
+    end
   end
 
   private 
@@ -48,7 +45,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :surname, :age, :avatar)
   end
 
-  def current_user
+  def find_user
     @user = User.find(params[:id])
   end
 end

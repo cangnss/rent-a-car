@@ -1,0 +1,50 @@
+<%= form_for @user do |form| %>
+    <div class="container">
+    <div class="row d-flex flex-column">
+    <div class="col">
+    <div class="mb-3 w-50">
+      <%= form.label :name, "Name:", class: "form-label" %>
+      <%= form.text_field :name, class: "form-control" %>
+      <% @user.errors.full_messages_for(:name).each do |message| %>
+            <div><%= message %></div>
+      <% end %>
+    </div>
+    </div>
+    
+    <div class="col">
+    <div class="mb-3 w-50">
+        <%= form.label :surname, "Surname:", class: "form-label" %>
+        <%= form.text_field :surname, class: "form-control" %>
+        <% @user.errors.full_messages_for(:surname).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+    </div>
+    <div class="col">
+        <div class="mb-3 w-50">
+            <%= form.label :age, "Age:", class: "form-label" %>
+            <%= form.text_field :age, class: "form-control" %>
+            <% @user.errors.full_messages_for(:age).each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+    </div>
+    <div class="col">
+        <div class="mb-3 w-50">
+            <%= form.label :avatar, "Avatar:", class: "form-label" %>
+            <%= form.file_field :avatar, class: "form-control" %>
+            <% @user.errors.full_messages_for(:avatar).each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+    </div>
+    <div class="col d-flex justify-content-end">
+    <div class="mb-3 w-50">
+        <%= form.submit "Submit", class: "btn btn-primary" %>
+    </div>
+    </div>
+    
+    </div>
+    </div>
+
+<% end %>

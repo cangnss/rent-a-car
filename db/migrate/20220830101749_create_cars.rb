@@ -7,7 +7,7 @@ class CreateCars < ActiveRecord::Migration[7.0]
       t.string :car_type
       t.float :car_km
       add_column :cars, :car_image, :attachment
-
+      
       t.timestamps
     end
   end

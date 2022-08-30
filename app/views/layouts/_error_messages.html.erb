@@ -1,0 +1,7 @@
+<% flash.each do |key, values| %>
+    <% values.each do |value| %>
+        <div class="<%= key %>" role="alert">
+            <%= value %>
+        </div>
+    <% end %>
+<% end %>
