@@ -5,7 +5,7 @@
 <div class="container">
 <div class="row">
     <div class="w-50 mx-auto border">
-        <h3><%= @user.name %> <%= @user.surname %> <%= @user.age %> </h3>
+        <h3> <span><img src="<%=(url_for(@user.avatar)) %>" width="64px" height="64px" class="rounded-circle border" /></span> <%= @user.name %> <%= @user.surname %> <%= @user.age %> </h3>
     </div>
 </div>
 </div>

@@ -18,10 +18,16 @@
     </div>
     </div>
     <div class="col">
-    <div class="mb-3 w-50">
-        <%= form.label :age, "Age:", class: "form-label" %>
-        <%= form.text_field :age, class: "form-control" %>
+        <div class="mb-3 w-50">
+            <%= form.label :age, "Age:", class: "form-label" %>
+            <%= form.text_field :age, class: "form-control" %>
+        </div>
     </div>
+    <div class="col">
+        <div class="mb-3 w-50">
+            <%= form.label :avatar, "Avatar:", class: "form-label" %>
+            <%= form.file_field :avatar, class: "form-control" %>
+        </div>
     </div>
     <div class="col d-flex justify-content-end">
     <div class="mb-3 w-50">
