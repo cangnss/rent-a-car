@@ -3,7 +3,7 @@
 <div class="container">
 <div class="row">
     <div class="w-50 mx-auto border">
-        <h3><%= @car.car_name %> <%= @car.car_brand %> <%= @car.car_type %> </h3>
+        <h3> <img src="<%= url_for(@car.car_image) %>" width="300px" height="auto" />  <%= @car.car_name %> <%= @car.car_brand %> <%= @car.car_type %> </h3>
     </div>
 </div>
 </div>

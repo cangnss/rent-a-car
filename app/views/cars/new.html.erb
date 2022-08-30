@@ -48,6 +48,15 @@
                     <% end %>
                 </div>
             </div>
+            <div class="col">
+                <div class="mb-3 w-50">
+                    <%= f.label :car_image, "Car Image:", class: "form-label" %>
+                    <%= f.file_field :car_image, class: "form-control" %>
+                    <% @car.errors.full_messages_for(:car_image).each do |message| %>
+                        <div><%= message %></div>
+                    <% end %>
+                </div>
+            </div>
             <div class="mb-3 w-50">
                 <%= f.submit "Add Car", class: "btn btn-primary" %>
             </div>
