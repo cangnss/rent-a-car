@@ -1,12 +1,21 @@
 <h1>Cars#index</h1>
 <p>Find me in app/views/cars/index.html.erb</p>
 <div class="container">
-    <div class="row w-50 mx-auto">
+    <div class="row w-100 mx-auto">
         <ul class="list-group">
             <% @cars.each do |car| %>
                 <li class="d-flex flex-row list-group-item justify-content-center align-items-center"> 
-                <img src="<%= url_for(car.car_image) %>" width="200px" height="auto" class="rounded ms-5 me-5" />
-   <%= car.car_name %> <%= car.car_brand %> <%= car.car_model %> <%= car.car_type %> <%= car.car_km %><%= button_to 'Edit', edit_car_path(car), method: 'get', class: 'btn btn-primary ms-2 me-2' %> <%= button_to 'Delete', car_path(car), method: 'delete', class: 'btn btn-danger me-2 ml-2' %> <%= button_to 'Car Detail', car_path(car), method:'get', class: 'btn btn-info text-white' %> </li>
+                    <img src="<%= url_for(car.car_image) %>" width="200px" height="auto" class="rounded ms-5 me-5" />
+                    <%= car.car_name %> 
+                    <%= car.car_brand %> 
+                    <%= car.car_model %> 
+                    <%= car.car_type %> 
+                    <%= car.car_km %>
+                    <%= link_to car.user.name, user_path(car.user), method: 'get' %>
+                    <%= button_to 'Edit', edit_car_path(car), method: 'get', class: 'btn btn-primary ms-2 me-2' %> 
+                    <%= button_to 'Delete', car_path(car), method: 'delete', class: 'btn btn-danger me-2 ml-2' %>
+                    <%= button_to 'Car Detail', car_path(car), method:'get', class: 'btn btn-info text-white' %> 
+                </li>
             <% end %>
         </ul>
         <%= link_to 'Add a New Car', new_car_path %>

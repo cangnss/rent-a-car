@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_30_170259) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_01_204102) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -51,6 +51,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_170259) do
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
+  create_table "rents", force: :cascade do |t|
+    t.date "begin"
+    t.date "end"
+    t.integer "users_id", null: false
+    t.integer "cars_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cars_id"], name: "index_rents_on_cars_id"
+    t.index ["users_id"], name: "index_rents_on_users_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "surname"
@@ -62,4 +73,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_170259) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cars", "users"
+  add_foreign_key "rents", "cars", column: "cars_id"
+  add_foreign_key "rents", "users", column: "users_id"
 end

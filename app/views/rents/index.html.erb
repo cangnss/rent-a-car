@@ -1,0 +1,20 @@
+<h1>Rents#index</h1>
+<p>Find me in app/views/rents/index.html.erb</p>
+
+<section class="rents">
+    <div class="container">
+        <div class="row">
+            <ul>
+                <% @rents.each do |rent| %>
+                    <li>
+                        <%= image_tag(user.avatar, width: '64px', height: '64px', class: 'rounded-circle border') %>
+                        <%= rent.user.name %>
+                        <%= rent.car.car_name %>
+                        <%= rent.begin %> - <%= rent.end%>
+                    </li>
+                <% end %>
+            </ul>
+            <%= link_to "Rent a New Car", new_rent_path %>
+        </div>
+    </div>
+</section>
