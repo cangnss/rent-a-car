@@ -1,0 +1,18 @@
+.navbar{
+    background-color: $navbarColor !important;
+}
+
+  nav {
+    .navbar-header {
+      width: 100%;
+      button, .navbar-brand {
+        transition: opacity 0.15s;
+      }
+      button {
+        margin-right: 0;
+      }
+      button:hover, .navbar-brand:hover {
+        opacity: 0.8;
+      }
+    }
+  }
