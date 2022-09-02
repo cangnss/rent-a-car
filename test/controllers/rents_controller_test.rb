@@ -11,13 +11,13 @@ class RentsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get new" do
-    get rents_new_url
+  test "should get edit" do
+    get rents_edit_url
     assert_response :success
   end
 
-  test "should get edit" do
-    get rents_edit_url
+  test "should get new" do
+    get rents_new_url
     assert_response :success
   end
 end

@@ -3,54 +3,54 @@
         <%= form_with model: @car do |f| %>
             <div class="col">
                 <div class="mb-3 w-50">
-                    <%= f.label :car_name, "Car Name:", class: "form-label" %>
-                    <%= f.text_field :car_name, class: "form-control" %>
-                    <% @car.errors.full_messages_for(:car_name).each do |message| %>
+                    <%= f.label :name, "Car Name:", class: "form-label" %>
+                    <%= f.text_field :name, class: "form-control" %>
+                    <% @car.errors.full_messages_for(:name).each do |message| %>
                         <div><%= message %></div>
                     <% end %>
                 </div>
             </div>
             <div class="col">
                 <div class="mb-3 w-50">
-                    <%= f.label :car_brand, "Car Brand:", class: "form-label" %>
-                    <%= f.text_field :car_brand, class: "form-control" %>
-                    <% @car.errors.full_messages_for(:car_brand).each do |message| %>
+                    <%= f.label :brand, "Car Brand:", class: "form-label" %>
+                    <%= f.text_field :brand, class: "form-control" %>
+                    <% @car.errors.full_messages_for(:brand).each do |message| %>
                         <div><%= message %></div>
                     <% end %>
                 </div>
             </div>
             <div class="col">
                 <div class="mb-3 w-50">
-                    <%= f.label :car_model, "Car Model:", class: "form-label" %>
-                    <%= f.text_field :car_model, class: "form-control" %>
-                    <% @car.errors.full_messages_for(:car_model).each do |message| %>
+                    <%= f.label :model, "Car Model:", class: "form-label" %>
+                    <%= f.text_field :model, class: "form-control" %>
+                    <% @car.errors.full_messages_for(:model).each do |message| %>
                         <div><%= message %></div>
                     <% end %>
                 </div>
             </div>
             <div class="col">
                 <div class="mb-3 w-50">
-                    <%= f.label :car_type, "Car Type:", class: "form-label" %>
-                    <%= f.text_field :car_type, class: "form-control" %>
-                    <% @car.errors.full_messages_for(:car_type).each do |message| %>
+                    <%= f.label :case_type, "Car Type:", class: "form-label" %>
+                    <%= f.text_field :case_type, class: "form-control" %>
+                    <% @car.errors.full_messages_for(:case_type).each do |message| %>
                         <div><%= message %></div>
                     <% end %>
                 </div>
             </div>
             <div class="col">
                 <div class="mb-3 w-50">
-                    <%= f.label :car_km, "Car Km:", class: "form-label" %>
-                    <%= f.text_field :car_km, class: "form-control" %>
-                    <% @car.errors.full_messages_for(:car_km).each do |message| %>
+                    <%= f.label :km, "Car Km:", class: "form-label" %>
+                    <%= f.text_field :km, class: "form-control" %>
+                    <% @car.errors.full_messages_for(:km).each do |message| %>
                         <div><%= message %></div>
                     <% end %>
                 </div>
             </div>
             <div class="col">
                 <div class="mb-3 w-50">
-                    <%= f.label :car_image, "Car Image:", class: "form-label" %>
-                    <%= f.file_field :car_image, class: "form-control" %>
-                    <% @car.errors.full_messages_for(:car_image).each do |message| %>
+                    <%= f.label :images, "Car Images:", class: "form-label" %>
+                    <%= f.file_field :images, multiple: true, class: "form-control" %>
+                    <% @car.errors.full_messages_for(:images).each do |message| %>
                         <div><%= message %></div>
                     <% end %>
                 </div>

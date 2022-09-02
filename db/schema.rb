@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_01_204102) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_02_121055) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -34,17 +34,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_204102) do
   end
 
   create_table "active_storage_variant_records", force: :cascade do |t|
-    t.integer "blob_id", null: false
+    t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
   create_table "cars", force: :cascade do |t|
-    t.string "car_name"
-    t.string "car_brand"
-    t.integer "car_model"
-    t.string "car_type"
-    t.float "car_km"
+    t.string "name"
+    t.string "brand"
+    t.integer "model"
+    t.string "case_type"
+    t.float "km"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", default: 1, null: false
@@ -54,12 +54,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_204102) do
   create_table "rents", force: :cascade do |t|
     t.date "begin"
     t.date "end"
-    t.integer "users_id", null: false
-    t.integer "cars_id", null: false
+    t.integer "user_id", null: false
+    t.integer "car_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cars_id"], name: "index_rents_on_cars_id"
-    t.index ["users_id"], name: "index_rents_on_users_id"
+    t.index ["car_id"], name: "index_rents_on_car_id"
+    t.index ["user_id"], name: "index_rents_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -68,11 +68,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_204102) do
     t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "car_id"
+    t.index ["car_id"], name: "index_users_on_car_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cars", "users"
-  add_foreign_key "rents", "cars", column: "cars_id"
-  add_foreign_key "rents", "users", column: "users_id"
+  add_foreign_key "rents", "cars"
+  add_foreign_key "rents", "users"
+  add_foreign_key "users", "cars"
 end

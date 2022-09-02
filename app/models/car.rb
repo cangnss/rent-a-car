@@ -1,8 +1,8 @@
 class Car < ApplicationRecord
-    has_one_attached :car_image
-    belongs_to :user # bir araba bir user'a ait olabilir.
-    has_many :rents   
+  has_many_attached :images
+  belongs_to :user
+  has_many :rents
 
-    validates :car_name, :car_model, :car_brand, :car_model, :car_type, :car_km, :car_image, presence: true
-    validates :car_name, length: { maximum: 15 }
+  validates :name, :model, :brand, :case_type, :km, :images, presence: true
+  validates :name, length: { maximum: 15 }
 end
