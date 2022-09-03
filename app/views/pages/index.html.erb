@@ -1,25 +1,79 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<section id="introduction">
+  <div class="container-fluid px-5 py-5">
+    <div class="row">
+      <div class="info col col-xs-12 py-5 my-5">
+        <div class="shadow bg-body w-75 rounded p-3 mb-5">
+          <h1 class="fw-bold">Easy and fast way<br/>
+            to rent your car</h1>
+          <p class="fs-6 w-75">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus distinctio esse totam consectetur, ipsam neque facere error. Doloremque itaque dignissimos explicabo, quia quaerat, harum nihil incidunt sapiente corrupti autem qui?</p>
+          <button class="btn btn-primary">Book a Car</button>
+        </div>
       </div>
-      <div class="modal-body">
-        ...
+      <div class="car col-6" 
+                style="background-image:url('yellowbackground2.jpg');
+                background-size:cover;
+                background-repeat:no-repeat;
+                background-attachment: fixed;
+                border-radius:15px;
+                "
+            >
+        <img src="merco.png" alt="Mercedes" class="img-fluid" />
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+    </div>
+    <div class="row shadow p-5 mb-5 bg-body rounded" style="margin-top:-2rem;z-index:3 !important;">
+      <div class="col">
+        <label class="form-label fw-bold">Pick Up Location</label>
+        <div class="input-group px-2 py-2 w-75 mb-3 border border-primary rounded-3">
+          <label class="input-group-text bg-transparent" style="border:none;" for=""><i class="bi bi-geo-alt"></i></label>
+          <select class="form-select" aria-label="Filter select" style="border:none;">
+            <option selected><i class="bi bi-funnel"></i>Kingston upon hall</option>
+            <option value="1">All</option>
+            <option value="2">Active</option>
+            <option value="3">Inactive</option>
+          </select>
+        </div>
+      </div>
+      <div class="col">
+        <label class="form-label fw-bold">Return Location</label>
+        <div class="input-group px-2 py-2 w-75 mb-3 border border-primary rounded-3">
+          <label class="input-group-text bg-transparent" style="border:none;" for=""><i class="bi bi-geo-alt"></i></label>
+          <select class="form-select" aria-label="Filter select" style="border:none;">
+            <option selected><i class="bi bi-funnel"></i>Kingston upon hall</option>
+            <option value="1">All</option>
+            <option value="2">Active</option>
+            <option value="3">Inactive</option>
+          </select>
+        </div>
+      </div>
+      <div class="col">
+        <label class="form-label fw-bold">Pick Up Date</label>
+        <div class="input-group px-2 py-2 w-75 mb-3 border border-primary rounded-3">
+          <label class="input-group-text bg-transparent" style="border:none;" for=""><i class="bi bi-calendar"></i></label>
+          <select class="form-select" aria-label="Filter select" style="border:none;">
+            <option selected><i class="bi bi-funnel"></i>Kingston upon hall</option>
+            <option value="1">All</option>
+            <option value="2">Active</option>
+            <option value="3">Inactive</option>
+          </select>
+        </div>
+      </div>
+      <div class="col">
+        <label class="form-label fw-bold">Return Date</label>
+        <div class="input-group px-2 py-2 w-75 mb-3 border border-primary rounded-3">
+          <label class="input-group-text bg-transparent" style="border:none;" for=""><i class="bi bi-geo-alt"></i></label>
+          <select class="form-select" aria-label="Filter select" style="border:none;">
+            <option selected><i class="bi bi-funnel"></i>Kingston upon hall</option>
+            <option value="1">All</option>
+            <option value="2">Active</option>
+            <option value="3">Inactive</option>
+          </select>
+        </div>
+      </div>
+      <div class="col d-flex justify-content-center align-items-center">
+        <div class="d-flex my-auto">
+          <button class="btn btn-primary p-3 btn-lg rounded-3">Search a Car</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>
