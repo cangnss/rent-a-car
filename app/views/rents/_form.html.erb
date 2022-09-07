@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <%= form_for @rent do |form| %>
+      <div class="col">
+        <%= form.label :begin, "Begin Date:", class: "form-label" %>
+        <%= form.date_field :begin, value: form.object.try(:strftime, "%m/%d/%Y"),class: "form-select w-50" %>
+        <%= render('layouts/form_errors', { model_variable: @rent, column_name: :begin }) %>
+      </div>
+      <div class="col">
+        <%= form.label :end, "End Date:", class: "form-label" %>
+        <%= form.date_field :end, value: form.object.try(:strftime, "%m/%d/%Y"), class: "form-select w-50" %>
+        <%= render('layouts/form_errors', { model_variable: @rent, column_name: :end }) %>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <%= form.label :user, "User:", class: "form-label" %>
+          <%= form.collection_select :user_id, User.all, :id, :name, class: "form-select w-50" %>
+          <%= render('layouts/form_errors', { model_variable: @rent, column_name: :user }) %>
+        </div>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <%= form.label :car, "Cars:", class: "form-label" %>
+          <%= form.collection_select :car_id, Car.all, :id, :name, class: "form-select w-50" %>
+          <%= render('layouts/form_errors', { model_variable: @rent, column_name: :car }) %>
+        </div>
+      </div>
+      <div class="col">
+        <%= form.submit "Rent", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
