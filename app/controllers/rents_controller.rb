@@ -1,5 +1,6 @@
 class RentsController < ApplicationController
   def index
+    @rents = Rent.all
   end
 
   def show
@@ -9,5 +10,6 @@ class RentsController < ApplicationController
   end
 
   def new
+    @rent = Rent.new
   end
 end
