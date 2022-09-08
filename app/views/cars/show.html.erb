@@ -52,6 +52,15 @@
           </div>
           <p class="text-secondary"><%= @car.fuel %></p>
         </div>
+        <hr />
+      </div>
+      <div class="col">
+        <p class="fw-bold">
+          Country: <%= @car.address.country%><br />
+          State: <%= @car.address.state %><br />
+          City: <%= @car.address.city %><br />
+          Detail: <%= @car.address.detail %><br />
+        </p>
       </div>
     </div>
   </div>
