@@ -1,7 +1,7 @@
 <div class="container shadow bg-body p-3 w-50">
   <div class="row">
     <div class="col">
-      <%= form_with model: @car do |f| %>
+      <%= form_for @car do |f| %>
         <div class="row">
           <div class="col">
             <div class="mb-3">
@@ -110,6 +110,46 @@
               <div class="alert alert-danger" role="alert"><%= message %></div>
             <% end %>
           </div>
+        </div>
+        <div class="row">
+          <%= f.fields_for :address do |ff| %>
+            <div class="col">
+              <div class="mb-3">
+                <%= ff.label :country, "Country:", class: "form-label" %>
+                <%= ff.text_field :country, class: "form-control w-50" %>
+                <% @car.errors.full_messages_for(:country).each do |message| %>
+                  <div class="alert alert-danger" role="alert"><%= message %></div>
+                <% end %>
+              </div>
+            </div>
+            <div class="col">
+              <div class="mb-3">
+                <%= ff.label :state, "State:", class: "form-label" %>
+                <%= ff.text_field :state, class: "form-control w-50" %>
+                <% @car.errors.full_messages_for(:state).each do |message| %>
+                  <div class="alert alert-danger" role="alert"><%= message %></div>
+                <% end %>
+              </div>
+            </div>
+            <div class="col">
+              <div class="mb-3">
+                <%= f.label :city, "City:", class: "form-label" %>
+                <%= ff.text_field :city, class: "form-control w-50" %>
+                <% @car.errors.full_messages_for(:city).each do |message| %>
+                  <div class="alert alert-danger" role="alert"><%= message %></div>
+                <% end %>
+              </div>
+            </div>
+            <div class="col">
+              <div class="mb-3">
+                <%= ff.label :detail, "Detail:", class: "form-label" %>
+                <%= ff.text_field :detail, class: "form-control w-50" %>
+                <% @car.errors.full_messages_for(:detail).each do |message| %>
+                  <div class="alert alert-danger" role="alert"><%= message %></div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
         </div>
         <div class="col text-end me-5 mb-3">
           <%= f.submit "Add Car", class: "btn btn-primary" %>

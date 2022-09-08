@@ -11,6 +11,7 @@ class CarsController < ApplicationController
 
   def new
     @car = Car.new
+    @car.build_address
   end
 
   def create
@@ -37,9 +38,13 @@ class CarsController < ApplicationController
     redirect_to cars_path
   end
 
+  def countries
+    CS.countries
+  end
+
   private 
   def car_params
-    params.require(:car).permit(:name, :brand, :model, :case_type, :km,  :seat, :ac, :gear, :fuel, :price, :images => [])
+    params.require(:car).permit(:name, :brand, :model, :case_type, :km,  :seat, :ac, :gear, :fuel, :price, :images => [], address_attributes: [ :id, :country, :state, :city, :detail])
   end
 
   def find_car

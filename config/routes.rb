@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'addresses/new'
   
   root to: 'pages#index'
   
