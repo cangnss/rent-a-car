@@ -7,18 +7,14 @@
             <div class="mb-3">
               <%= f.label :name, "Car Name:", class: "form-label" %>
               <%= f.text_field :name, class: "form-control w-50" %>
-              <% @car.errors.full_messages_for(:name).each do |message| %>
-                <div class="alert alert-danger" role="alert"><%= message %></div>
-              <% end %>
+              <%= render('layouts/form_errors', { model_variable: @car, column_name: :name }) %>
             </div>
           </div>
           <div class="col">
             <div class="mb-3">
               <%= f.label :brand, "Car Brand:", class: "form-label" %>
               <%= f.text_field :brand, class: "form-control w-50" %>
-              <% @car.errors.full_messages_for(:brand).each do |message| %>
-                <div class="alert alert-danger" role="alert"><%= message %></div>
-              <% end %>
+              <%= render('layouts/form_errors', { model_variable: @car, column_name: :brand }) %>
             </div>
           </div>
         </div>
@@ -27,18 +23,14 @@
             <div class="mb-3">
               <%= f.label :model, "Car Model:", class: "form-label" %>
               <%= f.text_field :model, class: "form-control w-50" %>
-              <% @car.errors.full_messages_for(:model).each do |message| %>
-                <div class="alert alert-danger" role="alert"><%= message %></div>
-              <% end %>
+              <%= render('layouts/form_errors', { model_variable: @car, column_name: :model }) %>
             </div>
           </div>
           <div class="col">
             <div class="mb-3">
               <%= f.label :case_type, "Car Type:", class: "form-label" %>
               <%= f.text_field :case_type, class: "form-control w-50" %>
-              <% @car.errors.full_messages_for(:case_type).each do |message| %>
-                <div class="alert alert-danger" role="alert"><%= message %></div>
-              <% end %>
+              <%= render('layouts/form_errors', { model_variable: @car, column_name: :case_type }) %>
             </div>
           </div>
         </div>
@@ -47,18 +39,14 @@
             <div class="mb-3">
               <%= f.label :km, "Car Km:", class: "form-label" %>
               <%= f.text_field :km, class: "form-control w-50" %>
-              <% @car.errors.full_messages_for(:km).each do |message| %>
-                <div class="alert alert-danger" role="alert"><%= message %></div>
-              <% end %>
+              <%= render('layouts/form_errors', { model_variable: @car, column_name: :km }) %>
             </div>
           </div>
           <div class="col">
             <div class="mb-3">
               <%= f.label :seat, "Car Seat:", class: "form-label" %>
               <%= f.select :seat, [1,2,3,4,5],{}, class: "form-select w-50" %>
-              <% @car.errors.full_messages_for(:seat).each do |message| %>
-                <div class="alert alert-danger" role="alert"><%= message %></div>
-              <% end %>
+              <%= render('layouts/form_errors', { model_variable: @car, column_name: :seat }) %>
             </div>
           </div>
         </div>
@@ -67,18 +55,14 @@
             <div class="mb-3">
               <%= f.label :ac, "Car Ac:", class: "form-label" %>
               <%= f.select :ac, [["Yes", 1], ["No", 0]], {}, {class: "form-select w-50"} %>
-              <% @car.errors.full_messages_for(:ac).each do |message| %>
-                <div class="alert alert-danger" role="alert"><%= message %></div>
-              <% end %>
+              <%= render('layouts/form_errors', { model_variable: @car, column_name: :ac }) %>
             </div>
           </div>
           <div class="col">
             <div class="mb-3">
               <%= f.label :gear, "Car Gear:", class: "form-label" %>
               <%= f.select :gear, ["Automatic", "Manuel", "Triptonic"], {}, {class: "form-select w-50"} %>
-              <% @car.errors.full_messages_for(:gear).each do |message| %>
-                <div class="alert alert-danger" role="alert"><%= message %></div>
-              <% end %>
+              <%= render('layouts/form_errors', { model_variable: @car, column_name: :gear }) %>
             </div>
           </div>
         </div>
@@ -87,18 +71,14 @@
             <div class="mb-3">
               <%= f.label :fuel, "Car Fuel:", class: "form-label" %>
               <%= f.select :fuel, ["Diesel", "Gasoline"], {}, {class: "form-select w-50"} %>
-              <% @car.errors.full_messages_for(:fuel).each do |message| %>
-                <div class="alert alert-danger" role="alert"><%= message %></div>
-              <% end %>
+              <%= render('layouts/form_errors', { model_variable: @car, column_name: :fuel }) %>
             </div>
           </div>
           <div class="col">
             <div class="mb-3">
               <%= f.label :price, "Car Price a Day:", class: "form-label" %>
               <%= f.number_field :price, step: 10, class: "form-control w-50" %>
-              <% @car.errors.full_messages_for(:price).each do |message| %>
-                <div class="alert alert-danger" role="alert"><%= message %></div>
-              <% end %>
+              <%= render('layouts/form_errors', { model_variable: @car, column_name: :price }) %>
             </div>
           </div>
         </div>
@@ -106,9 +86,7 @@
           <div class="mb-3 w-50">
             <%= f.label :images, "Car Images:", class: "form-label" %>
             <%= f.file_field :images, multiple: true, class: "form-control" %>
-            <% @car.errors.full_messages_for(:images).each do |message| %>
-              <div class="alert alert-danger" role="alert"><%= message %></div>
-            <% end %>
+            <%= render('layouts/form_errors', { model_variable: @car, column_name: :images }) %>
           </div>
         </div>
         <div class="row">
@@ -117,36 +95,28 @@
               <div class="mb-3">
                 <%= ff.label :country, "Country:", class: "form-label" %>
                 <%= ff.text_field :country, class: "form-control w-50" %>
-                <% @car.errors.full_messages_for(:country).each do |message| %>
-                  <div class="alert alert-danger" role="alert"><%= message %></div>
-                <% end %>
+                <%= render('layouts/form_errors', { model_variable: @car, column_name: :country }) %>
               </div>
             </div>
             <div class="col">
               <div class="mb-3">
                 <%= ff.label :state, "State:", class: "form-label" %>
                 <%= ff.text_field :state, class: "form-control w-50" %>
-                <% @car.errors.full_messages_for(:state).each do |message| %>
-                  <div class="alert alert-danger" role="alert"><%= message %></div>
-                <% end %>
+                <%= render('layouts/form_errors', { model_variable: @car, column_name: :state }) %>
               </div>
             </div>
             <div class="col">
               <div class="mb-3">
                 <%= f.label :city, "City:", class: "form-label" %>
                 <%= ff.text_field :city, class: "form-control w-50" %>
-                <% @car.errors.full_messages_for(:city).each do |message| %>
-                  <div class="alert alert-danger" role="alert"><%= message %></div>
-                <% end %>
+                <%= render('layouts/form_errors', { model_variable: @car, column_name: :city }) %>
               </div>
             </div>
             <div class="col">
               <div class="mb-3">
                 <%= ff.label :detail, "Detail:", class: "form-label" %>
                 <%= ff.text_field :detail, class: "form-control w-50" %>
-                <% @car.errors.full_messages_for(:detail).each do |message| %>
-                  <div class="alert alert-danger" role="alert"><%= message %></div>
-                <% end %>
+                <%= render('layouts/form_errors', { model_variable: @car, column_name: :detail }) %>
               </div>
             </div>
           <% end %>
