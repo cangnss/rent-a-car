@@ -12,11 +12,11 @@
         <%= render('layouts/form_errors', { model_variable: @rent, column_name: :end }) %>
       </div>
       <div class="col">
-        <div class="mb-3">
+        <%# <div class="mb-3">
           <%= form.label :user, "User:", class: "form-label" %>
           <%= form.collection_select :user_id, User.all, :id, :name, class: "form-select w-50" %>
           <%= render('layouts/form_errors', { model_variable: @rent, column_name: :user }) %>
-        </div>
+        </div> %>
       </div>
       <div class="col">
         <div class="mb-3">

@@ -1,64 +1,70 @@
 <div class="container">
   <div class="row">
     <div class="d-flex flex-row">
-      <% @cars.each do |car| %>
-        <div class="col-md-4 shadow bg-body rounded p-3 me-5 mb-3">
-          <h2 class="fw-bold mb-3"><%= car.name %>  <%= car.brand %> <%= car.case_type %></h2>
-          <div class="text-center">
-            <% car.images.each do |image| %>
-              <%= image_tag url_for(image), class: 'img-fluid mb-5', :style => "width:300px;height:auto;border-radius:15px;" %>
-            <% end %>
-          </div>
-          <h3 class="fw-bold mb-5">$<%= car.price %>/Day</h3>
-          <div class="car-properties d-flex flex-row">
-            <div class="col me-2">
-              <div class="mb-3 rounded-4 p-3 text-center w-50" style="background-color:#BBD2EC">
-                <i class="bi bi-person-circle" style="font-size:18px;color:#3E77B6;"></i>
-              </div>
-              <p class="text-secondary"><%= car.seat %> Seats</p>
-            </div>
-            <div class="col me-2">
-              <% if car.ac == 1 %>
-                <div class="mb-3 rounded-4 p-3 text-center w-50" style="background-color:#BBD2EC">
-                  <i class="bi bi-snow" style="font-size:18px;color:#3E77B6;"></i>
-                </div>
-                <p class="text-secondary">AC</p>
-              <% else %>
-                <div class="mb-3 rounded-4 p-3 text-center w-50" style="background-color:red;">
-                  <i class="bi bi-snow" style="font-size:18px;color:white;"></i>
-                </div>
-                <p class="text-secondary">Not AC</p>
+      <% if @cars.length > 0 %>
+        <% @cars.each do |car| %>
+          <div class="col-md-4 shadow bg-body rounded p-3 me-5 mb-3">
+            <h2 class="fw-bold mb-3"><%= car.name %>  <%= car.brand %> <%= car.case_type %></h2>
+            <div class="text-center">
+              <% car.images.each do |image| %>
+                <%= image_tag url_for(image), class: 'img-fluid mb-5', :style => "width:300px;height:auto;border-radius:15px;" %>
               <% end %>
             </div>
-            <div class="col me-2">
-              <div class="mb-3 rounded-4 p-3 text-center w-50" style="background-color:#BBD2EC">
-                <i class="bi bi-gear" style="font-size:18px;color:#3E77B6;"></i>
+            <h3 class="fw-bold mb-5">$<%= car.price %>/Day</h3>
+            <div class="car-properties d-flex flex-row">
+              <div class="col me-2">
+                <div class="mb-3 rounded-4 p-3 text-center w-50" style="background-color:#BBD2EC">
+                  <i class="bi bi-person-circle" style="font-size:18px;color:#3E77B6;"></i>
+                </div>
+                <p class="text-secondary"><%= car.seat %> Seats</p>
               </div>
-              <p class="text-secondary"><%= car.gear %></p>
+              <div class="col me-2">
+                <% if car.ac == 1 %>
+                  <div class="mb-3 rounded-4 p-3 text-center w-50" style="background-color:#BBD2EC">
+                    <i class="bi bi-snow" style="font-size:18px;color:#3E77B6;"></i>
+                  </div>
+                  <p class="text-secondary">AC</p>
+                <% else %>
+                  <div class="mb-3 rounded-4 p-3 text-center w-50" style="background-color:red;">
+                    <i class="bi bi-snow" style="font-size:18px;color:white;"></i>
+                  </div>
+                  <p class="text-secondary">Not AC</p>
+                <% end %>
+              </div>
+              <div class="col me-2">
+                <div class="mb-3 rounded-4 p-3 text-center w-50" style="background-color:#BBD2EC">
+                  <i class="bi bi-gear" style="font-size:18px;color:#3E77B6;"></i>
+                </div>
+                <p class="text-secondary"><%= car.gear %></p>
+              </div>
+              <div class="col">
+                <div class="mb-3 rounded-4 p-3 text-center w-50" style="background-color:#BBD2EC;">
+                  <%# <i class="bi bi-fuel-pump" style="font-size:18px;color:#3E77B6;"></i> %>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-fuel-pump" style="color:#3E77B6;" viewBox="0 0 16 16">
+                    <path d="M3 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5v-5Z"/>
+                    <path d="M1 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v8a2 2 0 0 1 2 2v.5a.5.5 0 0 0 1 0V8h-.5a.5.5 0 0 1-.5-.5V4.375a.5.5 0 0 1 .5-.5h1.495c-.011-.476-.053-.894-.201-1.222a.97.97 0 0 0-.394-.458c-.184-.11-.464-.195-.9-.195a.5.5 0 0 1 0-1c.564 0 1.034.11 1.412.336.383.228.634.551.794.907.295.655.294 1.465.294 2.081v3.175a.5.5 0 0 1-.5.501H15v4.5a1.5 1.5 0 0 1-3 0V12a1 1 0 0 0-1-1v4h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V2Zm9 0a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v13h8V2Z"/>
+                  </svg>
+                </div>
+                <p class="text-secondary"><%= car.fuel %></p>
+              </div>
+              <hr />
             </div>
             <div class="col">
-              <div class="mb-3 rounded-4 p-3 text-center w-50" style="background-color:#BBD2EC;">
-                <%# <i class="bi bi-fuel-pump" style="font-size:18px;color:#3E77B6;"></i> %>
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-fuel-pump" style="color:#3E77B6;" viewBox="0 0 16 16">
-                  <path d="M3 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5v-5Z"/>
-                  <path d="M1 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v8a2 2 0 0 1 2 2v.5a.5.5 0 0 0 1 0V8h-.5a.5.5 0 0 1-.5-.5V4.375a.5.5 0 0 1 .5-.5h1.495c-.011-.476-.053-.894-.201-1.222a.97.97 0 0 0-.394-.458c-.184-.11-.464-.195-.9-.195a.5.5 0 0 1 0-1c.564 0 1.034.11 1.412.336.383.228.634.551.794.907.295.655.294 1.465.294 2.081v3.175a.5.5 0 0 1-.5.501H15v4.5a1.5 1.5 0 0 1-3 0V12a1 1 0 0 0-1-1v4h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V2Zm9 0a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v13h8V2Z"/>
-                </svg>
-              </div>
-              <p class="text-secondary"><%= car.fuel %></p>
+              <p class="fw-bold">
+                Country: <%= car.address.country%><br />
+                State: <%= car.address.state %><br />
+                City: <%= car.address.city %><br />
+                Detail: <%= car.address.detail %><br />
+              </p>
             </div>
-            <hr />
+            <div class="col">
+              <%= link_to "Rent a Car", new_rent_path, class: "btn btn-outline-primary" %>
+            </div>
           </div>
-          <div class="col">
-            <p class="fw-bold">
-              Country: <%= car.address.country%><br />
-              State: <%= car.address.state %><br />
-              City: <%= car.address.city %><br />
-              Detail: <%= car.address.detail %><br />
-            </p>
-          </div>
-          <div class="col">
-            <%= link_to "Rent a Car", new_rent_path, class: "btn btn-outline-primary" %>
-          </div>
+        <% end %>
+      <% else %>
+        <div class="alert alert-danger" role="alert">
+          There is no suitable cars!
         </div>
       <% end %>
     </div>
