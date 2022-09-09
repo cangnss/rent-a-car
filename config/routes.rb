@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
+  get '/u/:id', to: 'users#profile', as: 'user'
   get 'addresses/new'
   
   root to: 'pages#index'
