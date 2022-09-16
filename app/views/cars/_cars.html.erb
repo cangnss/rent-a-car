@@ -68,8 +68,10 @@
         </div>
       <% end %>
     </div>
-    <div class="col text-end mt-3">
-      <%= link_to 'Add a New Car', new_car_path, class: 'btn btn-primary btn-sm', style: 'width:10rem;' %>
-    </div>
+    <% if current_user %>
+      <div class="col text-end mt-3">
+        <%= link_to 'Add a New Car', new_car_path, class: 'btn btn-primary btn-sm', style: 'width:10rem;' %>
+      </div>
+    <% end %>
   </div>
 </div>
