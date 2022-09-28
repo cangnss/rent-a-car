@@ -1,6 +1,6 @@
 class Droptableuser < ActiveRecord::Migration[7.0]
   def up
-    drop_table :users
+    drop_table :users, if_exists: true
   end
 
   def down
