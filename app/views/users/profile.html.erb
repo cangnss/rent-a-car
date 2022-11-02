@@ -4,6 +4,7 @@
       <%= image_tag url_for(@user.avatar), class: 'img-fluid w-100 rounded-3' %>
       <p class="mt-2"><%= @user.name %> <%= @user.surname %></p>
       <p><%= @user.birthday %></p>
+      <p><%= @user.role %></p>
       <%= link_to "Update Profile", edit_user_registration_path, class: 'btn btn-primary' %>
     </div>
     <div class="col-8">
