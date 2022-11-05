@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+  layout 'dashboard'
+
   def index
     @companies = Companies.all
   end
