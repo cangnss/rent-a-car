@@ -1,0 +1,8 @@
+import './jquery.easing.1.3'
+import './aos'
+import './bootstrap-datepicker'
+import './google-map'
+import './main'
+import './range'
+import './owl.carousel.min'
+import './jquery-3.2.1.min.js'

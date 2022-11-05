@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'companies/index'
+  get 'companies/show'
+  get 'companies/edit'
+  get 'companies/destroy'
   devise_for :users, controller:{
     sessions: 'users/sessions',
     registrations: 'users/registrations'
