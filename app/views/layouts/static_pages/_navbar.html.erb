@@ -1,33 +1,27 @@
-<nav class="navbar navbar-expand-lg bg-transparent">
-  <div class="container-fluid">
-    <img src="rentacar.png" alt="" class="img-fluid me-3" style="width:64px;height:64px;">
-    <%= link_to "Rent a Car", root_path, class: 'navbar-brand' %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-        <li class="nav-item"><%= link_to "Home", root_path, class: 'nav-link'%></li>
-        <li class="nav-item"><%= link_to "How it Works", root_path, class: 'nav-link'%></li>
-        <%# <li class="nav-item"><%= link_to "Users", {:controller=> :users, :action=> "index"}, class: 'nav-link'%></li>
-      <%# <li class="nav-item"><%= link_to "Cars", {:controller=> :cars, :action=> "index"}, class: 'nav-link'%></li>
-  </ul>
-  <div class="d-flex">
-    <% if current_user %>
-      <%= link_to user_path(current_user) do %>
-        <div class="d-flex flex-row justify-content-center align-items-center me-3">
-          <%= image_tag(current_user.avatar, width: '64px', height: '64px', class: 'rounded-circle border') %>
-          <p class="ms-2 fw-bold"> <%= current_user.name %> <%= current_user.surname %> </p>
-        </div>
-      <% end %>
-      <div class="d-flex align-items-center">
-        <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-danger' %>
-      </div>
-    <% else %>
-      <%= link_to "Login", new_user_session_path, class: 'btn btn-primary me-2' %>
-      <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-outline-primary' %>
-    <% end %>
-  </div>
-</div>
-</div>
-</nav>
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <%= link_to root_path, class: "navbar-brand" do %>
+			Car<span> Book</span>
+		  <% end %> 
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><%= link_to "Home", root_path, class: "nav-link" %></li>
+			  
+	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+	          <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
+	          <li class="nav-item"><a href="car.html" class="nav-link">Cars</a></li>
+	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	        </ul>
+	      </div>
+		  <div>
+		  	<%= link_to 'Login', new_user_session_path, class: 'btn btn-primary' %> 
+			<%= link_to 'Register', new_user_registration_path, class: 'btn btn-primary' %> 
+		  </div>
+	    </div>
+	  </nav>

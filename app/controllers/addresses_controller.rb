@@ -1,4 +1,5 @@
 class AddressesController < ApplicationController
+  layout 'dashboard'
   def new
     @address = Address.new
   end

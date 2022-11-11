@@ -1,5 +1,6 @@
 class CarsController < ApplicationController
   before_action :find_car, only: [:show, :edit, :update, :destroy]
+  layout 'dashboard'
 
   def index
     @cars = Car.all

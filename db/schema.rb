@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_28_222659) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_02_155140) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -67,6 +67,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_28_222659) do
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password"
+    t.integer "cars_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cars_id"], name: "index_companies_on_cars_id"
+  end
+
   create_table "rents", force: :cascade do |t|
     t.date "begin"
     t.date "end"
@@ -85,6 +95,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_28_222659) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "addresses", "cars"
   add_foreign_key "cars", "users"
+  add_foreign_key "companies", "cars", column: "cars_id"
   add_foreign_key "rents", "cars"
   add_foreign_key "rents", "users"
 end
